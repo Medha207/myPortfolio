@@ -1,0 +1,82 @@
+
+> my-portfolio@0.0.0 lint
+> eslint .
+
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\About.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Contact.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\CustomBackground.jsx
+   2:10  error    'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+  33:5   warning  Compilation Skipped: Inline `class` declarations are not supported
+
+Move class declarations outside of components/hooks.
+
+   31 |     };
+   32 |
+>  33 |     class Particle {
+      |     ^^^^^^^^^^^^^^^^
+>  34 |       constructor() {
+      | ^^^^^^^^^^^^^^^^^^^^^
+>  35 |         this.x = Math.random() * w;
+      ???
+      | ^^^^^^^^^^^^^^^^^^^^^
+>  99 |       }
+      | ^^^^^^^^^^^^^^^^^^^^^
+> 100 |     }
+      | ^^^^^^ Inline `class` declarations are not supported
+  101 |
+  102 |     // Initialize particles
+  103 |     for (let i = 0; i < settings.count; i++) {
+
+  react-hooks/unsupported-syntax
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\CustomCursor.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Hero.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Innovation.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Magnetic.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Navbar.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Projects.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Services.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Skills.jsx
+   2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   no-unused-vars
+  67:49  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  65 |                   <motion.div
+  66 |                     animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
+> 67 |                     transition={{ duration: 5 + Math.random() * 2, delay: floatDelay, repeat: Infinity, ease: "easeInOut" }}
+     |                                                 ^^^^^^^^^^^^^ Cannot call impure function
+  68 |                     className="group w-28 h-28 md:w-36 md:h-36 rounded-full glass-panel flex flex-col items-center justify-center relative transition-colors duration-500 z-10 border border-white/20 backdrop-blur-2xl"
+  69 |                     style={{
+  70 |                       boxShadow: `0:10px 30px -10px ${skill.color}50, inset 0 0 20px ${skill.color}20`,  react-hooks/purity
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Testimonials.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\src\components\Vision.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Medha\OneDrive\Desktop\My Portfolio\test.js
+  1:365  error  Parsing error: Expecting Unicode escape sequence \uXXXX
+
+??? 16 problems (15 errors, 1 warning)
+

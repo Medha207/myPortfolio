@@ -48,9 +48,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="text-3xl md:text-5xl lg:text-5xl text-white font-bold tracking-wider mb-4 uppercase drop-shadow-lg"
+          className="text-3xl md:text-5xl lg:text-5xl text-white font-bold tracking-wider mb-4 uppercase drop-shadow-lg flex justify-center gap-[0.25em]"
         >
-          {portfolioData.hero.greeting}
+          {portfolioData.hero.greeting.split(" ").map((word, idx) => (
+            <span key={idx}>{word}</span>
+          ))}
         </motion.h2>
         
         <motion.h1 
