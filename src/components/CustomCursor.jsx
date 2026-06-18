@@ -19,17 +19,20 @@ const CustomCursor = () => {
 
     // Listen for hover on clickable elements to expand the cursor
     const handleMouseOver = (e) => {
-      if (
+      const isOverClickable = !!(
         e.target.tagName.toLowerCase() === 'a' ||
         e.target.tagName.toLowerCase() === 'button' ||
         e.target.closest('a') ||
         e.target.closest('button') ||
         e.target.classList.contains('magnetic')
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
+      );
+      
+      setIsHovered((prev) => {
+        if (prev !== isOverClickable) {
+          return isOverClickable;
+        }
+        return prev;
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);

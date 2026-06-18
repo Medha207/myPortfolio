@@ -57,22 +57,24 @@ export const portfolioData = {
     { name: "Express", category: "Backend", color: "#ffffff" },
     { name: "MongoDB", category: "Database", color: "#4d724eff" },
     { name: "Python", category: "Backend/AI", color: "#3776AB" },
-    { name: "SQL", category: "Database", color: "#afdcfeff" }
+    { name: "SQL", category: "Database", color: "#afdcfeff" },
+    { name: "Gen AI", category: "AI", color: "#a855f7" },
+    { name: "Prompt Engineering", category: "AI", color: "#06b6d4" }
   ],
 
   projects: [
     {
-      title: "Space Exploration",
-      subtitle: "Cosmic Discovery Platform",
-      description: "Discover the wonders of the universe with our space exploration website. Dive into the latest discoveries, missions, and innovations driving humanity’s journey beyond Earth.",
-      techStack: ["HTML", "CSS"],
-      liveDemo: "https://cosmiccoders.niat.tech/",
+      title: "Ca Phe Bistro",
+      subtitle: "Production Café Website",
+      description: "Designed and developed a production-ready website for a real-client café with responsive UI, modern UX, and mobile-first design. Delivered a fully polished, business-facing product with optimized performance and intuitive navigation.",
+      techStack: ["HTML", "CSS", "JavaScript", "React.js"],
+      liveDemo: "https://caphebistro.in/",
       image: "linear-gradient(135deg, rgba(8,145,178,0.2) 0%, rgba(14,165,233,0.1) 100%)"
     },
     {
       title: "Arithmetic Calculator",
       subtitle: "Interactive Computing Utility",
-      description: "Built a stylish arithmetic calculator performing basic operations. Designed with an elegant gradient UI, smooth animations, and beginner-friendly logic tailored for responsiveness.",
+      description: "Built a fully responsive arithmetic calculator featuring a gradient UI and smooth animations for an enhanced user experience.",
       techStack: ["HTML", "CSS", "JavaScript"],
       liveDemo: "https://lily07.niat.tech/",
       image: "linear-gradient(135deg, rgba(168,85,247,0.2) 0%, rgba(59,130,246,0.1) 100%)"
@@ -80,7 +82,7 @@ export const portfolioData = {
     {
       title: "Rock Paper Scissors Game",
       subtitle: "Interactive Web Game",
-      description: "Developed an interactive Rock-Paper-Scissors game featuring a vibrant UI with pastel gradient backgrounds, smooth animations, and engaging instantaneous visual feedback.",
+      description: "Developed an interactive browser game with pastel gradient UI, smooth animations, and real-time visual feedback.",
       techStack: ["HTML", "CSS", "JavaScript"],
       liveDemo: "https://emily.niat.tech/",
       image: "linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(139,92,246,0.1) 100%)"
@@ -88,25 +90,25 @@ export const portfolioData = {
     {
       title: "User Management Dashboard",
       subtitle: "Full-Stack Control Panel",
-      description: "Developed a full-stack user management system utilizing robust architectural patterns. Implemented secure CRUD operations and REST APIs to add, view, update, and delete users.",
-      techStack: ["MongoDB", "Express", "React", "Node.js"],
-      github: "https://github.com/Medha207/User-Management-Dashboard",
+      description: "Developed a full-stack CRUD dashboard for admin user management with REST APIs for add, view, update, and delete operations. Architected clean separation of concerns across a React frontend and Express/MongoDB backend.",
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js (MERN)"],
+      liveDemo: "https://user-management-dashboard-s4eb.vercel.app/",
       image: "linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(6,182,212,0.1) 100%)"
     },
     {
-      title: "Fin Track",
+      title: "FinTrack",
       subtitle: "Secure Fintech Application",
-      description: "Built a complete backend application for user authentication and data management. Integrated JWT authentication, bcrypt hashing, and robust RESTful APIs following a strict MVC architecture.",
-      techStack: ["Node.js", "Express", "MongoDB"],
-      github: "https://github.com/Medha207/Fintech",
+      description: "Built a secure backend with JWT authentication and bcrypt password hashing, following MVC architecture and REST API best practices. Implemented full CRUD operations for financial data; deployed on Vercel/Render and validated with Postman.",
+      techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "bcrypt"],
+      liveDemo: "https://fintech1-sigma.vercel.app/",
       image: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(239,68,68,0.1) 100%)"
     },
     {
-      title: "EmotFix",
+      title: "EmotiFix",
       subtitle: "Mood-Based Recommendation Engine",
-      description: "Designed an innovative mood-based movie platform featuring responsive custom glowing cards and 3D backgrounds. Includes secure authentication, dedicated backend routes, and real-time reviews.",
-      techStack: ["MongoDB", "Express", "React", "Node.js"],
-      github: "https://github.com/Medha207/EmotFix/tree/master",
+      description: "Built a full-stack MERN app that recommends movies by user-selected emotions, integrating trailer previews and ratings. Implemented JWT-based authentication, RESTful Node.js + Express APIs, and a fully responsive React frontend.",
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js (MERN)"],
+      liveDemo: "https://emot-fix.vercel.app/",
       image: "linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(168,85,247,0.1) 100%)"
     }
   ],

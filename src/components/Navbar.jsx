@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { Menu, X, Home, User, Lightbulb, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Home, User, Lightbulb, Briefcase, Mail, Cpu } from 'lucide-react';
 import Magnetic from './Magnetic';
 
 // Changed nav links to precisely match section IDs
 const navLinks = [
   { name: 'Home', to: 'home', icon: Home },
   { name: 'About', to: 'about', icon: User },
+  { name: 'Experience', to: 'experience', icon: Cpu },
   { name: 'Skills', to: 'skills', icon: Lightbulb },
   { name: 'Projects', to: 'projects', icon: Briefcase },
   { name: 'Contact', to: 'contact', icon: Mail },

@@ -10,14 +10,39 @@ const Contact = () => {
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+    
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${portfolioData.contact.email}`, {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}`
+        })
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Transmission error:", error);
+      setStatus('error');
+    }
+    
     setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus(''), 3000);
-    }, 1500);
+      setStatus('');
+    }, 4000);
   };
 
   return (
@@ -129,7 +154,7 @@ const Contact = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-neon-cyan opacity-0 group-hover:opacity-20 transition-opacity"></div>
                   <span className="font-bold text-white uppercase tracking-[0.2em] relative z-10">
-                    {status === 'sending' ? 'TRANSMITTING...' : status === 'success' ? 'PROTOCOL RECEIVED' : 'INITIATE CONNECTION'}
+                    {status === 'sending' ? 'TRANSMITTING...' : status === 'success' ? 'PROTOCOL RECEIVED' : status === 'error' ? 'TRANSMISSION ERROR' : 'INITIATE CONNECTION'}
                   </span>
                   {status === '' && <Send size={18} className="text-white relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                 </button>

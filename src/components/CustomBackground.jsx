@@ -1,20 +1,32 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomBackground = () => {
   const canvasRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 }); // start offscreen
+  
+  // Use MotionValues to animate the spotlight div directly without triggering React re-renders
+  const spotlightX = useMotionValue(-1000);
+  const spotlightY = useMotionValue(-1000);
+  
+  // Create smooth springs for the spotlight movement for a premium fluid animation
+  const smoothSpotlightX = useSpring(spotlightX, { stiffness: 80, damping: 25 });
+  const smoothSpotlightY = useSpring(spotlightY, { stiffness: 80, damping: 25 });
 
-  // Track mouse for the glowing aurora orb
+  // Use a Ref to store the latest mouse coordinates for the canvas animation loop
+  const mousePositionRef = useRef({ x: -1000, y: -1000 });
+
+  // Track mouse coordinates
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      spotlightX.set(e.clientX);
+      spotlightY.set(e.clientY);
+      mousePositionRef.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [spotlightX, spotlightY]);
 
-  // Complex Canvas Starfield and Constellation simulation
+  // Complex Canvas Starfield and Constellation simulation (Runs once on mount)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -64,7 +76,7 @@ const CustomBackground = () => {
         }
 
         // Mouse interaction (repel subtly, draw connecting lines if close)
-        if (mouseX && mouseY) {
+        if (mouseX && mouseY && mouseX !== -1000) {
           const dx = mouseX - this.x;
           const dy = mouseY - this.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -109,9 +121,12 @@ const CustomBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
 
+      const mX = mousePositionRef.current.x;
+      const mY = mousePositionRef.current.y;
+
       // Draw lines between nearby particles
       for (let i = 0; i < particles.length; i++) {
-        particles[i].update(mousePosition.x, mousePosition.y);
+        particles[i].update(mX, mY);
         particles[i].draw();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -147,7 +162,7 @@ const CustomBackground = () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
     };
-  }, [mousePosition]); // Re-bind if mouse changes, though usually we can use a ref for mouse
+  }, []);
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none bg-[#0a0a0a] overflow-hidden">
@@ -187,12 +202,11 @@ const CustomBackground = () => {
 
       {/* 2. Interactive Neon Cursor Spotlight */}
       <motion.div
-        className="absolute w-[300px] h-[300px] rounded-full bg-primary/20 blur-[80px] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
-        animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
+        className="absolute w-[300px] h-[300px] rounded-full bg-primary/20 blur-[80px] -translate-x-1/2 -translate-y-1/2 mix-blend-screen pointer-events-none"
+        style={{
+          x: smoothSpotlightX,
+          y: smoothSpotlightY,
         }}
-        transition={{ type: "tween", ease: "backOut", duration: 1.5 }}
       />
 
       {/* 3. Mathematical Canvas Constellation Generator */}
